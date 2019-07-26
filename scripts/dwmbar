@@ -4,11 +4,11 @@
 get_status() {
     battery_status="";
     if $(has_battery); then
-        battery_status="$(get_battery_status) | ";
+        battery_status="$(get_battery_status) |";
     fi
 
     net_info="$(get_net_info)"
-    echo "${net_info}${battery_status}Vol: $(get_volume) | $(get_datetime)";
+    echo "${net_info}${battery_status} "$(get_volume)" | $(get_datetime)";
 }
 
 get_net_info() {
@@ -21,11 +21,16 @@ get_net_info() {
 }
 
 get_volume() {
-    pamixer --get-volume-human
+    vol="$(pamixer --get-volume-human)"
+    if [[ "$vol" == "muted" ]]; then
+        printf "🔇 %s" "$vol"
+    else
+        printf "🔉 %s" "$vol"
+    fi
 }
 
 get_datetime() {
-    date +"%a %e %b %Y - %I:%M %p %Z"
+   date +"📅 %a %e %b %Y | 🕑 %I:%M %p %Z"
 }
 
 # Battery
@@ -40,7 +45,18 @@ has_battery() {
 }
 
 get_battery_status() {
-    echo "$(get_charging_status) $(get_charge)%"
+    charge="$(get_charge)"
+    icon=""
+    if [[ "$charge" -le 25 ]]; then
+        icon=""
+    elif [[ "$charge" -le 50 ]]; then
+        icon=""
+    elif [[ "$charge" -le 80 ]]; then
+        icon="" 
+    else
+        icon=""
+    fi
+    echo "$(get_charging_status) "$icon" $(get_charge)%"
 }
 
 get_charging_status() {
