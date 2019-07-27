@@ -25,12 +25,12 @@ get_volume() {
     if [[ "$vol" == "muted" ]]; then
         printf "🔇 %s" "$vol"
     else
-        printf "🔉 %s" "$vol"
+        printf "🔊 %s" "$vol"
     fi
 }
 
 get_datetime() {
-   date +"📅 %a %e %b %Y | 🕑 %I:%M %p %Z"
+    date +"📅 %a %e %b %Y | 🕓 %I:%M %p %Z"
 }
 
 # Battery
@@ -46,17 +46,36 @@ has_battery() {
 
 get_battery_status() {
     charge="$(get_charge)"
-    icon=""
-    if [[ "$charge" -le 25 ]]; then
-        icon=""
-    elif [[ "$charge" -le 50 ]]; then
-        icon=""
-    elif [[ "$charge" -le 80 ]]; then
-        icon="" 
+    if [ "$(get_charging_status)" == "Discharging" ]; then
+        icon=""
+        if [[ "$charge" -le 10 ]]; then
+            icon=""
+        elif [[ "$charge" -le 20 ]]; then
+            icon=""
+        elif [[ "$charge" -le 30 ]]; then
+            icon="" 
+        elif [[ "$charge" -le 40 ]]; then
+            icon="" 
+        elif [[ "$charge" -le 50 ]]; then
+            icon="" 
+        elif [[ "$charge" -le 60 ]]; then
+            icon="" 
+        elif [[ "$charge" -le 70 ]]; then
+            icon="" 
+        elif [[ "$charge" -le 80 ]]; then
+            icon="" 
+        elif [[ "$charge" -le 90 ]]; then
+            icon="" 
+        elif [[ "$charge" -le 100 ]]; then
+            icon="" 
+        else
+            icon=""
+        fi
     else
-        icon=""
+        icon=""
     fi
-    echo "$(get_charging_status) "$icon" $(get_charge)%"
+    echo ""$icon" "$charge"%"
+
 }
 
 get_charging_status() {
