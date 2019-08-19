@@ -16,7 +16,7 @@ get_net_info() {
     device="$(echo "$info" | pcregrep -o1 -i "connected to (.*)")"
     if [[ ! -z "$device" ]]; then
         type="$(echo "$info" | awk 'NR==3 { print $1 }')"
-        printf "%s: %s | " "$type" "$device"
+        printf "%s: %s |" "$type" "$device"
     fi
 }
 
