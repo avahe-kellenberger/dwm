@@ -8,7 +8,7 @@ get_status() {
     fi
 
     net_info="$(get_net_info)"
-    echo "${net_info}${battery_status} "$(get_volume)" | $(get_datetime)";
+    echo "${net_info} ${battery_status} "$(get_volume)" | $(get_datetime)";
 }
 
 get_net_info() {
@@ -30,7 +30,7 @@ get_volume() {
 }
 
 get_datetime() {
-    date +"📅 %a %e %b %Y | 🕓 %I:%M %p %Z"
+    date +"📅 %a %d %b %Y | 🕓 %I:%M %p %Z"
 }
 
 # Battery
