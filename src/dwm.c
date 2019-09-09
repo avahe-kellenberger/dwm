@@ -2988,9 +2988,9 @@ xinitvisual()
 
 	XFree(infos);
 
-	if (! visual) {
+	if (!visual) {
 		visual = DefaultVisual(dpy, screen);
-		depth = DefaultDepth(dpy, screen);
+        depth = drw->depth;
 		cmap = DefaultColormap(dpy, screen);
 	}
 }
