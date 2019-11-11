@@ -8,7 +8,7 @@ get_status() {
     fi
 
     net_info="$(get_net_info)"
-    echo "${net_info} ${battery_status} "$(get_volume)" | $(get_datetime)";
+    echo "${net_info} |${battery_status} "$(get_volume)" | $(get_datetime)";
 }
 
 get_net_info() {
@@ -16,7 +16,7 @@ get_net_info() {
     device="$(echo "$info" | pcregrep -o1 -i "connected to (.*)")"
     if [[ ! -z "$device" ]]; then
         type="$(echo "$info" | awk 'NR==3 { print $1 }')"
-        printf "%s: %s |" "$type" "$device"
+        printf "%s: %s" "$type" "$device"
     fi
 }
 

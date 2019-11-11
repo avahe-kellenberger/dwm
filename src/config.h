@@ -21,21 +21,28 @@ static const int smartgaps          = 1;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "dina:size=10" };
-static const char normbgcolor[]     = "#1c1b19";
-static const char normbordercolor[] = "#1c1b19"; 
-static const char normfgcolor[]     = "#fce8c3"; 
-static const char selfgcolor[]      = "#519f50"; 
-static const char selbgcolor[]      = "#1c1b19";
-static const char selbordercolor[]  = "#519f50"; 
+static char normbgcolor[]     = "#1c1b19";
+static char normbordercolor[] = "#1c1b19"; 
+static char normfgcolor[]     = "#fce8c3"; 
+static char selfgcolor[]      = "#519f50"; 
+static char selbgcolor[]      = "#1c1b19";
+static char selbordercolor[]  = "#519f50"; 
+
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
+};
+
 static const unsigned int baralpha = 0xFF;
 // static const unsigned int baralpha = 0xf9;
 static const unsigned int borderalpha = OPAQUE;
 
-static const char *colors[][3]      = {
+/*static const char *colors[][3]      = { */
 	/*               fg           bg           border   */
-	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+	/*[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
 	[SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-};
+};*/
 
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
@@ -130,6 +137,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
