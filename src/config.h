@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 0;       /* snap pixel */
 
 /* systray */
@@ -35,14 +35,7 @@ static char *colors[][3] = {
 };
 
 static const unsigned int baralpha = 0xFF;
-// static const unsigned int baralpha = 0xf9;
 static const unsigned int borderalpha = OPAQUE;
-
-/*static const char *colors[][3]      = { */
-	/*               fg           bg           border   */
-	/*[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-	[SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-};*/
 
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
