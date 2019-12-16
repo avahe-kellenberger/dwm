@@ -7,8 +7,10 @@ get_status() {
         battery_status="$(get_battery_status) |";
     fi
 
-    net_info="$(get_net_info)"
-    echo "${net_info} |${battery_status} "$(get_volume)" | $(get_datetime)";
+    # net_info="$(get_net_info)"
+
+    weather="$(weather -i)"
+    echo "${weather} |${battery_status} "$(get_volume)" | $(get_datetime)";
 }
 
 get_net_info() {
