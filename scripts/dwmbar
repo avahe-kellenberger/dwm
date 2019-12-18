@@ -4,12 +4,10 @@
 get_status() {
     battery_status="";
     if $(has_battery); then
-        battery_status="$(get_battery_status) |";
+        battery_status=" $(get_battery_status) |";
     fi
 
-    # net_info="$(get_net_info)"
-
-    weather="$(weather -i)"
+    weather="$(cat "$HOME/.config/weather/current")"
     echo "${weather} |${battery_status} "$(get_volume)" | $(get_datetime)";
 }
 
