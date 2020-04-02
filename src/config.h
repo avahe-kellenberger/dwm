@@ -65,11 +65,11 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 /* first entry is default */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "tile",      tile }, 
+	{ "tile",            tile }, 
 	{ "monocle",      monocle },
  	{ "dwindle",      dwindle }, 
- 	{ "spiral",      spiral },
-	{ "floating",      NULL },    /* no layout function means floating behavior */
+ 	{ "spiral",        spiral },
+	{ "floating",        NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -121,16 +121,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY,                       XK_f,      togglefullscreen },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,                       XK_space,  togglefloating,      {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
+  { MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -140,7 +139,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-    { ControlMask|ShiftMask,        XK_Escape, self_restart,   {0} },
+  { ControlMask|ShiftMask,        XK_Escape, self_restart,   {0} },
 	{ ControlMask|Mod1Mask,         XK_Delete, quit,           {0} },
 };
 
