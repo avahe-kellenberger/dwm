@@ -13,6 +13,7 @@ See [this link](https://dwm.suckless.org) for the original source/creators of dw
 - systray
 - swallow
 - pertag
+- centeredwindowname
 
 ## Requirements
 
