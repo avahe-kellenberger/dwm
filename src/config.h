@@ -13,14 +13,15 @@ static const int showsystray        = 1;        /* 0 means no systray */
 
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 
-static char normbgcolor[]           = "#222222";
-static char normbordercolor[]       = "#444444";
-static char normfgcolor[]           = "#bbbbbb";
-static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#005577";
-static char selbgcolor[]            = "#005577";
+static char normbgcolor[]     = "#1c1b19";
+static char normbordercolor[] = "#1c1b19"; 
+static char normfgcolor[]     = "#fce8c3"; 
+static char selfgcolor[]      = "#519f50"; 
+static char selbgcolor[]      = "#1c1b19";
+static char selbordercolor[]  = "#519f50";
+
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -36,7 +37,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 }
+	/* { "Gimp",     NULL,       NULL,       0,            1,           -1 } */
 };
 
 /* layout(s) */
@@ -46,8 +47,8 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "[M]",      monocle },
+	{ "tile",      tile },    /* first entry is default */
+	{ "monocle",   monocle },
 };
 
 /* key definitions */
