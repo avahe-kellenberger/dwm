@@ -14,6 +14,7 @@ See [this link](https://dwm.suckless.org) for the original source/creators of dw
 - swallow
 - pertag
 - centeredwindowname
+- zoomswap
 
 ## Requirements
 
