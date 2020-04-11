@@ -10,6 +10,7 @@ See [this link](https://dwm.suckless.org) for the original source/creators of dw
 - fullgaps
 - xrdb
 - actualfullscreen
+- systray
 
 ## Requirements
 
